@@ -23,4 +23,23 @@ public class Data {
     public DataPoint[] getData() {
         return fact;
     }
+
+    public void removeInvalid() {
+        for (DataPoint dpt : fact) {
+            if (!(dpt == null) && (dpt.getInfo() == null || dpt.getInfo().getCountry() == null)) {
+                dpt = null;
+            }
+        }
+        for (int i = 0; i < fact.length; i++) {
+            if (!(fact[i] == null)) {
+                for (int j = i+1; j < fact.length; j++) {
+                    if (!(fact[j] == null)) {
+                        if (fact[i].getInfo().getCountry().equals(fact[j].getInfo().getCountry())) { 
+                            fact[i] = null;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

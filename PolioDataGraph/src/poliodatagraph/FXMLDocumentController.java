@@ -37,13 +37,14 @@ public class FXMLDocumentController implements Initializable {
             myUrl = new URL(s);
         } catch (Exception e) {
             System.out.println("Invalid url: " + s);
-            System.exit(-1);
+            return;
         }
         Scanner sc = null;
         try {
             sc = new Scanner(myUrl.openStream());
         } catch (Exception e) {
             System.out.println("Unable to connect to " + s);
+            return;
         }
         String dataStr = new String();
         while (sc.hasNext()) {
@@ -52,12 +53,13 @@ public class FXMLDocumentController implements Initializable {
         Gson gson = new Gson();
         Data data = gson.fromJson(dataStr, Data.class);
         
-        XYChart.Series<String, Number> vaccinations = new XYChart.Series();
+        data.removeInvalid();
+        
+        XYChart.Series<String, Integer> vaccinations = new XYChart.Series();
         vaccinations.setName("Number of Vaccinations");
         for (DataPoint dpt : data.getData()) {
             vaccinations.getData().add(new XYChart.Data(dpt.getInfo().getCountry(), dpt.getValue()));
         }
         barChart.getData().add(vaccinations);
-        
     }    
 }

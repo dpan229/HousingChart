@@ -11,7 +11,7 @@ package poliodatagraph;
  */
 class DataPoint {
     private DataInfo dim;
-    private String Value;
+    private Integer Value;
     
     public DataPoint() {
     }
@@ -20,7 +20,7 @@ class DataPoint {
         return dim;
     }
     
-    public String getValue() {
+    public Integer getValue() {
         return Value;
     }
 }

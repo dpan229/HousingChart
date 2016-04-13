@@ -15,7 +15,7 @@ class DataInfo {
     private String GHO;
     private String WORLDBANKINCOMEGROUP;
     private String COUNTRY;
-    private String YEAR;
+    private Integer YEAR;
     
     public DataInfo() {
     }
@@ -40,7 +40,7 @@ class DataInfo {
         return COUNTRY;
     }
     
-    public String getYear() { 
+    public Integer getYear() { 
         return YEAR;
     }
 }
