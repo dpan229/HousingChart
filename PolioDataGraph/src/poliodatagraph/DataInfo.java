@@ -9,7 +9,7 @@ package poliodatagraph;
  *
  * @author csstudent
  */
-class DataInfo {
+public class DataInfo {
     private String PUBLISHATE;
     private String REGION;
     private String GHO;

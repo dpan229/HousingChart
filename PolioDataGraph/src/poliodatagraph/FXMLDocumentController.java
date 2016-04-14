@@ -58,7 +58,9 @@ public class FXMLDocumentController implements Initializable {
         XYChart.Series<String, Integer> vaccinations = new XYChart.Series();
         vaccinations.setName("Number of Vaccinations");
         for (DataPoint dpt : data.getData()) {
-            vaccinations.getData().add(new XYChart.Data(dpt.getInfo().getCountry(), dpt.getValue()));
+            if (!(dpt == null)) {
+                vaccinations.getData().add(new XYChart.Data(dpt.getInfo().getCountry(), dpt.getValue()));
+            }
         }
         barChart.getData().add(vaccinations);
     }    

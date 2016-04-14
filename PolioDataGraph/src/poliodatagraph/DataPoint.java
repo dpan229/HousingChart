@@ -9,7 +9,7 @@ package poliodatagraph;
  *
  * @author csstudent
  */
-class DataPoint {
+public class DataPoint {
     private DataInfo dim;
     private Integer Value;
     

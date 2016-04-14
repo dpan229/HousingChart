@@ -9,7 +9,7 @@ package poliodatagraph;
  *
  * @author csstudent
  */
-class LabelHolder {
+public class LabelHolder {
     private String label;
     private String display;
 }
