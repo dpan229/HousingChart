@@ -5,9 +5,9 @@
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="332.0" prefWidth="482.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="dpanhc.HousingChartController">
+<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dpanhc.HousingChartController">
    <children>
-      <StackedBarChart fx:id="stackedBarChart" prefHeight="366.0" prefWidth="500.0" title="Properties in Chicago">
+      <StackedBarChart fx:id="stackedBarChart" prefHeight="425.0" prefWidth="581.0" title="Properties in Chicago" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>

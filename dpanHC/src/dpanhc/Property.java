@@ -29,6 +29,10 @@ public class Property {
         return units;
     }
     
+    public boolean anyNull() {
+        return ((property_type == null || zip_code == null) || units == null);
+    }
+    
     @Override
     public String toString() {
         return units + " " + property_type + " units at " + zip_code;
