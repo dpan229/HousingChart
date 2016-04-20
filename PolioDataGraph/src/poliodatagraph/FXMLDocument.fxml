@@ -3,11 +3,13 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="423.0" prefWidth="516.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="poliodatagraph.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="423.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poliodatagraph.FXMLDocumentController">
    <children>
-      <BarChart fx:id="barChart" prefHeight="423.0" prefWidth="516.0" title="Polio Vaccination in World Countries">
+      <BarChart fx:id="barChart" barGap="2.0" categoryGap="2.0" prefHeight="423.0" prefWidth="516.0" title="Polio Vaccination in World Countries" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -15,5 +17,9 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
+      <Slider fx:id="maxSlider" blockIncrement="5.0" layoutX="362.0" layoutY="401.0" value="100.0" />
+      <Slider fx:id="minSlider" blockIncrement="5.0" layoutX="14.0" layoutY="401.0" />
+      <Text layoutX="154.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum" />
+      <Text layoutX="299.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum" />
    </children>
 </AnchorPane>

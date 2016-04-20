@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -25,8 +27,23 @@ public class FXMLDocumentController implements Initializable {
     private BarChart barChart;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
+    private Slider maxSlider;
+    
+    @FXML
+    private Slider minSlider;
+    
+    private Data data;
+    
+    @FXML
+    private void handleChangeFilter(MouseEvent event) {
+        XYChart.Series<String, Integer> vaccinations = new XYChart.Series();
+        vaccinations.setName("Number of Vaccinations");
+        for (DataPoint dpt : data.getData()) {
+            if (!(dpt == null) && (dpt.getValue() >= minSlider.getValue() && dpt.getValue() <= maxSlider.getValue())) {
+                vaccinations.getData().add(new XYChart.Data(dpt.getInfo().getCountry(), dpt.getValue()));
+            }
+        }
+        barChart.getData().add(vaccinations);
     }
     
     @Override
@@ -51,7 +68,7 @@ public class FXMLDocumentController implements Initializable {
             dataStr += sc.nextLine() + "\n";
         }
         Gson gson = new Gson();
-        Data data = gson.fromJson(dataStr, Data.class);
+        data = gson.fromJson(dataStr, Data.class);
         
         data.removeInvalid();
         
