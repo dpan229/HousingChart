@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -39,10 +38,11 @@ public class FXMLDocumentController implements Initializable {
         XYChart.Series<String, Integer> vaccinations = new XYChart.Series();
         vaccinations.setName("Number of Vaccinations");
         for (DataPoint dpt : data.getData()) {
-            if (!(dpt == null) && (dpt.getValue() >= minSlider.getValue() && dpt.getValue() <= maxSlider.getValue())) {
+            if ((dpt != null) && (dpt.getValue() >= minSlider.getValue() && dpt.getValue() <= maxSlider.getValue())) {
                 vaccinations.getData().add(new XYChart.Data(dpt.getInfo().getCountry(), dpt.getValue()));
             }
         }
+        barChart.getData().remove(0, barChart.getData().size());
         barChart.getData().add(vaccinations);
     }
     
